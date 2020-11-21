@@ -1,66 +1,68 @@
 import java.util.Scanner;
-
-public class d
-{
-    public static int input(){
+class Main {
+    
+    public static void input() {
         // kullanıcıdan input alınması
         int n;
-        Scanner sc=new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("depolamak istediğiniz satır sayısını girin: ");
-        n=sc.nextInt();
-        int i=0;
-        int y=0;
+        n = sc.nextInt();
+        int[] additionarray = new int[n];
         //double array içerisinde depo işlemi yapılıyor
-        int[][] array = new int[n+1][n];
-        System.out.println("depolamak istediğiniz elementleri girin: ");
-        //dummy sayı oluşturuldu.
-        int m=0;
+
+
+
         //array sınırları kontrol ediliyor.
-        for(i=0; i<n; i++)
-        {
-            for(y =0; y<=m; y++){
-                array[y][i]=sc.nextInt();
-               if(y==(n-1)){
-                    System.out.println("duruyor mu"); //check point
-                    break;
-                }
+        for (int i = 0; i < n; i++) {
+
+            int[] array = new int[i+1];
+            System.out.println(i+1 + ". satırın elementlerini giriniz: ");
+            for (int y = 0; y <= i; y++) {
+                array[y] = sc.nextInt();
             }
-            m++;
-            if(i==(n-1)){
-                System.out.println("duruyor mu 2"); //check point
-                break;
+         sort(array);
+            additionarray[i]=array[0];
+
+        }
+        printArray(additionarray);
+    }
+    
+    //selection sort 
+        public static void sort(int arr[])
+        {
+            int n = arr.length;
+
+    
+            for (int i = 0; i < n-1; i++)
+            {
+                // min elementi buluyor
+                int min_idx = i;
+                for (int j = i+1; j < n; j++)
+                    if (arr[j] < arr[min_idx])
+                        min_idx = j;
+
+                // bulunan min elementi öncekiyle değiştiriyor
+                int temp = arr[min_idx];
+                arr[min_idx] = arr[i];
+                arr[i] = temp;
             }
         }
-      /**  for(int k=0; k<=array.length; k++){
-            for (int j=0; j<=array.length; j++ ){
-                System.out.println("array elemanları");
-                System.out.println(array[k][j]);
-            } }**/
 
+        // array yazma
+        public static void printArray(int arr[])
+        {
 
-        minSumPath(array);
-        System.out.print(minSumPath(array)); // sum path fonksiyonuna bağlantı yapılıyor
-        System.out.println(".......................");
-        return 0; //0 donduruyoruz.
-}
-
-//sumpath hesaplama
-    static int minSumPath(int[][] arr)
-    {
-        int []memo = new int[arr.length];
-        int n = arr.length - 1;
-        for (int i = 0; i < arr[n].length; i++)
-            memo[i] = arr[n][i];
-
-        for (int i = arr.length - 2; i >= 0; i--)
-            for (int j = 0; j < arr[i].length; j++)
-                memo[j] = arr[i][j] + (int)Math.min(memo[j], memo[j + 1]);
-
-            return memo[0]; }
-
-        public static void main(String[] args) {
-
-            System.out.print(input()); //inputun işlendiği yer.
-
-    }
+            int n = arr.length;
+            int sum=0;
+            for (int i=0; i<n; ++i){
+                System.out.print(arr[i]+" ");
+                sum=sum+arr[i]; //toplamı yaptırıyor
+            }
+            System.out.println();
+            System.out.println(sum);
+        }
+    
+  public static void main(String args[]) { 
+   input(); //input çağrılıyor.
+  } 
 }
