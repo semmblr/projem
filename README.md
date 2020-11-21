@@ -1,1 +1,3 @@
-# projem
+Bu projenin amacı bir triangle algoritmasındaki en kısa yolu bulup bu yolun toplamını hesaplamaktır.
+Bu projede java programlama dili kullanılmıştır.
+Versiyon kontrol sistemi olarak (VCS) maven kullanılmıştır.
