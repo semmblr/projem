@@ -8,11 +8,9 @@ class Main {
         System.out.print("depolamak istediğiniz satır sayısını girin: ");
         n = sc.nextInt();
         int[] additionarray = new int[n];
-        //double array içerisinde depo işlemi yapılıyor
+      
 
-
-
-        //array sınırları kontrol ediliyor.
+         //array sınırları kontrol ediliyor.
         for (int i = 0; i < n; i++) {
 
             int[] array = new int[i+1];
