@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Main {
+class d {
     
     public static void input() {
         // kullanıcıdan input alınması
